@@ -8,25 +8,198 @@
 \begin{frame}
 	\frametitle{Outline}
 	\begin{itemize}
-		\item 基本数据类型
-			\begin{itemize}
-				\item 整数
-				\item 字符
-				\item 小数
-			\end{itemize}  
 		\item  容器
-			\begin{itemize}
-				\item 列表
-				\item 元组
-				\item 字典
-				\item 集合
-			\end{itemize}
+		      \begin{itemize}
+			      \item 列表
+			      \item 元组
+			      \item 字典
+			      \item 集合
+		      \end{itemize}
 	\end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{基本数据类型}
-	\framesubtitle{subtitle}
-	setnesnt
-	
+	\frametitle{元组}
+	\framesubtitle{创建元组}
+	元组是有序的、不能更改的、可重复的容器。
+	\begin{block}{example}
+		创建元组thistuple = ("apple", "banana", "cherry", "apple", "cherry")
+		使用构造器创建元组thistuple = tuple(("apple", "banana", "cherry", "apple", "cherry"))
+	\end{block}
+	\begin{alertblock}{定义但个元素的元组}
+		创建单元素的元组必须在元素后添加逗号
+		thistuple = ("apple",)
+		print(type(thistuple))
+		thistuple = ("apple")
+		print(type(thistuple))
+	\end{alertblock}
+
+\end{frame}
+\begin{frame}
+	\frametitle{元组}
+	\framesubtitle{访问元组}
+	\begin{itemize}
+		\item 索引(正向，反向，截取)
+		\item 便利
+		\item 筛选
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{元组}
+	\framesubtitle{添加元素/删除元素}
+	因为tuple是不可更改的，如果需要更改tuple中的元素需要将其转化为list类型的变量
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{元组}
+	\framesubtitle{解包}
+	将元组中的元素一次赋给多个变量
+	\begin{block}{example}
+		fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+		(green, yellow, *red) = fruits
+
+		print(green)
+		print(yellow)
+		print(red)
+	\end{block}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{元组}
+	\framesubtitle{方法}
+	\begin{itemize}
+		\item count() :输出某个元素在tuple中出的次数
+		\item index() :输出某个元素在元组中第一次出现位置的索引值
+	\end{itemize}
+
+\end{frame}
+\begin{frame}[t]
+	\frametitle{集合set}
+	\framesubtitle{set创建}
+	set是无序、不可更改、不可重复、无索引的容器
+	\begin{block}{example}
+		thisset = \{"apple", "banana", "cherry"\}
+		print(thisset)
+		通过构造器创建set thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+	\end{block}
+	\begin{alertblock}{set元素不允许重复}
+		thisset = \{"apple", "banana", "cherry", True, 1, 2\}\\1和true在set中被认为是值相同的元素
+		print(thisset)
+	\end{alertblock}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{集合}
+	\framesubtitle{访问set}
+	\begin{itemize}
+		\item 索引
+		\item 遍历
+		\item 筛选
+		\item 检查
+		      set没有索引，索引、筛选操作需将set转化为list
+		      \begin{block}{检查}
+			      thisset = {"apple", "banana", "cherry"}\\
+			      print("banana" in thisset)
+		      \end{block}
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{集合}
+	\framesubtitle{向集合中添加元素}
+	\begin{itemize}
+		\item add()
+		\item update()更新原集合、union()=|返回新集合
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{集合}
+	\framesubtitle{删除集合中的元素}
+	\begin{itemize}
+		\item remove()
+		\item discard()
+		\item pop()
+		\item clear()
+	\end{itemize}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{集合}
+	\framesubtitle{集合中的方法}
+	\begin{itemize}
+		\item intersection() 	\$将两集合中所有重复的元素返回到新集合
+		\item intersection	update()不返回新集合,在原集合上更改
+		\item difference()	-将在另一个集合中出现过的元素筛掉形成新集合
+		\item difference\_update()不创建新集合
+		\item symmetric\_difference() \^	\\ 两个集合中所有差异的元素全部同步到新集合
+		\item symmetric\_difference\_update()不创建新集合在原集合上更改
+
+	\end{itemize}
+	\begin{alertblock}{mind}
+		使用运算符号操作集合时,只能操作set类型的值
+	\end{alertblock}
+
+\end{frame}
+\begin{frame}[t]
+	\frametitle{字典}
+	\framesubtitle{创建字典}
+	字典是有序、可改值、不允许重复的集合
+	\begin{block}{example}
+		thisdict = {
+		"brand": "Ford",
+		"model": "Mustang",
+		"year": 1964
+		}\\
+		thisdict = dict(name = "John", age = 36, country = "Norway") :使用构造器创建集合
+	\end{block}
+
+\end{frame}
+\begin{frame}[t]
+	\frametitle{字典}
+	\framesubtitle{字典元素的访问}
+	\begin{itemize}
+		\item get()：通过key值访问某个元素的value
+		\item keys():返回所有的keys
+		\item values():返回所有的values
+		\item items():返回所有的items
+		\item 遍历字典
+		      \begin{itemize}
+			      \item for x in dictionary 和keys():遍历keys
+			      \item for x in dictionary: dictionary[x] 和values()便利values
+			      \item for x,y in dictionary.items: 遍历(key,value)
+		      \end{itemize}
+
+	\end{itemize}
+	\begin{alertblock}{Attention}
+		x =dictionary.keys():在获取字典的keys之后任何对字典的修改都会同步到keys列表,valuse和items也类似
+	\end{alertblock}
+
+\end{frame}
+\begin{frame}[t]
+	\frametitle{字典}
+	\framesubtitle{向字典中添加元素}
+	\begin{itemize}
+		\item dictionary[keys]=values
+		\item update(): 函数的值可以是任何iterable类型的变量
+	\end{itemize}
+
+\end{frame}
+\begin{frame}[t]
+	\frametitle{字典}
+	\framesubtitle{删除字典中的元素}
+	\begin{itemize}
+		\item pop(key)删除指定key的元素
+		\item popitem()删除最后一个元素
+		\item clear()
+	\end{itemize}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{字典}
+	\framesubtitle{字典的相关方法}
+	\begin{itemize}
+		\item fromkeys():返回一个所有值相同的字典
+	\end{itemize}
+
 \end{frame}
 \end{document}
