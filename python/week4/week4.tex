@@ -1,30 +1,101 @@
 \documentclass{beamer}
 \usepackage{ctex}
-\usetheme{Madrid}
+\usepackage{zhs}
+\usepackage{diagbox}  % 斜线表头
+\usepackage{colortbl} %
 \title{python语言程序设计基础}
-\author{周恒昇}
-\institute{西亚斯学院}
+\author{Hengsheng Zhou}
+\institute{电信与智能制造学院}
 \begin{document}
+\begin{frame}[t]
+	\titlepage
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.2\linewidth]{output.eps}
+		\end{center}
+	\end{figure}
+
+
+\end{frame}
 \begin{frame}
 	\frametitle{Outline}
-	\begin{itemize}
-		\item  容器
-		      \begin{itemize}
-			      \item 列表
-			      \item 元组
-			      \item 字典
-			      \item 集合
-		      \end{itemize}
-	\end{itemize}
+	\tableofcontents
 \end{frame}
+\section{说课}
+
+\subsection{为什么学python}
+
+\begin{frame}[t]
+	1. Python 用途广泛，生态丰富，无论是初学者还是专业开发者，都能在不同领域找到合适的应用场景！
+	\pause
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\diagbox{应用场景}{示例} & 框架                        \\
+			\hline
+			数据分析               & Matplotlib/Seaborn（数据可视化） \\
+			\hline
+			自动化                & 批量文件处理                    \\
+			\hline
+			数据采集               & Scrapy                    \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\pause
+	2. Python 语法简洁、易学易用，适合零基础入门.
+	\pause
+	\begin{center}
+		\includegraphics[width=0.5\linewidth]{learning_curve.eps}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}[t]
+	\begin{center}
+		\includegraphics[width=0.4\linewidth]{pie.eps}
+	\end{center}
+	\pause
+	\begin{center}
+		\includegraphics[width=0.6\linewidth]{student_number.eps}
+	\end{center}
+\end{frame}
+
+
+\subsection{怎么学}
+
+\begin{frame}[t]
+	\begin{itemize}
+		\item<1-> 避免陷入“理论陷阱”
+		      \pause
+		      \begin{alertblock}{Solution}
+			      学一点就写代码，实践出真知，避免只看不练
+		      \end{alertblock}
+		\item<3-> 先掌握最基础的知识
+		      \begin{alertblock}{Solution}
+			      先掌握数据结构与算法
+		      \end{alertblock}
+		\item<5-> setnes
+	\end{itemize}
+
+\end{frame}
+
+\section{本节内容概述}
+
+\section{容器}
+
+\subsection{元组}
+
 \begin{frame}
 	\frametitle{元组}
 	\framesubtitle{创建元组}
 	元组是有序的、不能更改的、可重复的容器。
+	\pause
 	\begin{block}{example}
 		创建元组thistuple = ("apple", "banana", "cherry", "apple", "cherry")
 		使用构造器创建元组thistuple = tuple(("apple", "banana", "cherry", "apple", "cherry"))
 	\end{block}
+	\pause
 	\begin{alertblock}{定义但个元素的元组}
 		创建单元素的元组必须在元素后添加逗号
 		thistuple = ("apple",)
@@ -74,6 +145,9 @@
 	\end{itemize}
 
 \end{frame}
+
+\subsection{集合}
+
 \begin{frame}[t]
 	\frametitle{集合set}
 	\framesubtitle{set创建}
@@ -141,6 +215,9 @@
 	\end{alertblock}
 
 \end{frame}
+
+\subsection{字典}
+
 \begin{frame}[t]
 	\frametitle{字典}
 	\framesubtitle{创建字典}
