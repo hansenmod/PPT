@@ -1,0 +1,187 @@
+
+\documentclass{beamer}
+\usepackage{ctex}
+\usepackage{zhs}
+\usepackage{diagbox}  % 斜线表头
+\usepackage{colortbl} %
+\title{python语言程序设计基础}
+\author{Hengsheng Zhou}
+\institute{电信与智能制造学院}
+\begin{document}
+\begin{frame}[t]
+	\titlepage
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.2\linewidth]{output.eps}
+		\end{center}
+	\end{figure}
+
+
+\end{frame}
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+
+\section{函数}
+
+\subsection{形参不可变函数的定义}
+
+\begin{frame}[t]
+	\begin{block}{definition}
+		函数是一个实现特定功能的代码段
+
+	\end{block}
+	\pause
+	\begin{block}{example}
+		无参函数
+		def my\_function():\\
+		print("Hello from a function")
+		带有参数的函数
+		def my\_function(name):\\
+		print(name + " say hello")
+		带有两个参数的函数
+		def my\_function(name, something):\\
+		print(name + "say" + something)
+
+	\end{block}
+	\pause
+
+	\begin{alertblock}{Attention}
+		调用函数时传入的参数数量必须与形参个数相同。
+	\end{alertblock}
+	\pause
+	\begin{alertblock}{Attention}
+		如果在定义函数时无法确定函数形参数量该如何定义函数？
+	\end{alertblock}
+
+
+
+\end{frame}
+\subsection{可变形参函数的定义}
+
+\begin{frame}[t]
+	\begin{block}{创建可变形参函数}
+		def my\_function(*kids):\\
+		print("The youngest child is " + kids[2])\\
+	\end{block}
+	\pause
+	\begin{block}{调用}
+		my\_function("Emil", "Tobias", "Linus")\#将实参作为元组传入函数因此需要通过索引值的方式访问实参
+	\end{block}
+
+\end{frame}
+\begin{frame}[t]
+	\begin{block}{定义}
+		def my\_function(**kid):\\
+		print("His last name is " + kid["lname"])\\
+	\end{block}
+	\pause
+	\begin{block}{调用}
+		my\_function(fname = "Tobias", lname = "Refsnes")\#由于实参以字典的方式传入函数,因此条用时需要指定key
+	\end{block}
+\end{frame}
+
+\section{函数的调用}
+
+\begin{frame}[t]
+	\begin{block}{规定实参形式}
+		def test\_function (a,b,/,*,c,d,)\#规定,/符合之前实参按顺序赋值，在,*之后形参按key复制
+	\end{block}
+	\pause
+	\begin{block}{为形参设置默认值}
+		def my\_function(country = "Norway")\#如果调用函数不传入实参怎使用默认值
+
+	\end{block}
+	\pause
+	\begin{block}{空体函数}
+		def myfunction():\#通过pass关键字可以暂时不指定函数体\\
+		pass
+	\end{block}
+
+\end{frame}
+
+\section{Lambda表达式}
+
+\begin{frame}[t]
+	\begin{block}{创建}
+		x = lambda a, b, c : a + b + c
+	\end{block}
+	\pause
+	\begin{block}{调用}
+		def lambda\_func(a,b,*,func):\\定义
+		lambda\_func(2,4,func=lambda a,b:a*b)\\调用将lambda表达式作为实参
+
+	\end{block}
+\end{frame}
+
+\section{正则表达式}
+
+
+\begin{frame}[t]
+	\begin{columns}
+
+		\begin{column}{0.5\textwidth}
+			\begin{table}[htpb]
+				\centering
+				\caption{基本表达式}
+				\label{tab:label}
+				\begin{tabular}{|c|c|}
+					\hline
+					\[\] & 一个字符序列                 \\
+					\hline
+					位置   & $\^$、\$                \\
+					\hline
+					数量   & *、+、?、{}               \\
+					\hline
+					元素   & []、$.$、 \textbackslash \\
+					\hline
+					逻辑   & |                      \\
+					\hline
+				\end{tabular}
+			\end{table}
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			\begin{table}[htpb]
+				\centering
+				\caption{元素表达式[   ]}
+				\label{tab:label}
+
+				\begin{tabular}{|c|c|}
+					\hline
+					$[abc]$    & abc任意一个   \\
+					\hline
+					$[a-c]$    & 字母表任意一个   \\
+					\hline
+					[ $\^$abc] & 除了abc任意一个 \\
+					\hline
+				\end{tabular}
+			\end{table}
+
+		\end{column}
+
+	\end{columns}
+	\pause
+	\begin{table}[htpb]
+		\centering
+		\caption{元素表达式\textbackslash}
+		\label{tab:label}
+
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbackslash d & 数字\\
+			\hline
+			\textbackslash D & 非数字\\
+			\hline
+			\textbackslash s & 空格\\
+			\hline
+			\textbackslash S & 非空格\\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+
+
+\end{document}
