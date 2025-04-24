@@ -1,0 +1,30 @@
+% myformat.sty - 自定义样式文件
+\ProvidesPackage{work}[2025/04/24 v1.0 自定义样式文件]
+
+% 加载必要的宏包
+\RequirePackage{ctex}       % 支持中文，确保宋体可用
+\RequirePackage{graphicx}   % 支持字体大小设置
+\RequirePackage{enumitem}   % 列表样式配置
+
+% 定义自定义的 title 类型
+\newcommand{\midtitle}[1]{%
+    \begin{center} % 居中
+    \fontsize{16pt}{19pt}\selectfont % 设置字体大小为16pt，行间距为19pt
+    \bfseries % 加粗字体
+    \songti % 设置为宋体
+    #1 % 输入的标题文本
+    \end{center}
+}
+
+% 加载必要的宏包
+
+% 设置中文编号
+\newlist{myenumerate}{enumerate}{1}
+\setlist[myenumerate,1]{label=\textbf{\chinese{enumi}}、}
+
+% 其他的自定义设置
+\newcommand{\boldtitle}[1]{\textbf{#1}} % 自定义命令：加粗标题
+
+% 其他你需要的宏包和设置可以在这里添加
+
+

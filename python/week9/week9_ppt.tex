@@ -24,105 +24,91 @@
 
 \section{从文件中读取数据}
 
-\subsection{}
+\subsection{打开文件}
 
 \begin{frame}[t]
 	\begin{block}{definition}
-		函数是一个实现特定功能的代码段
+		若要读取一个文件的内容需先将文件打开,共有四种打开模式
+		\begin{itemize}
+			\item r只读模式，若果没有文件则会报错
+			      \pause
+
+			\item a和w都是写，若没有指定文件会自动创建,a是在原有基础上添加，w是覆盖
+			      \pause
+
+			\item x创建文件,如果指定文件已存在则报错
+
+		\end{itemize}
 
 	\end{block}
 	\pause
-	\begin{block}{example}
-		无参函数
-		def my\_function():\\
-		print("Hello from a function")
-		带有参数的函数
-		def my\_function(name):\\
-		print(name + " say hello")
-		带有两个参数的函数
-		def my\_function(name, something):\\
-		print(name + "say" + something)
+	\begin{block}{definition}
+		文件格式
+		\begin{itemize}
+			\item t将文件当作文本文件处理
+			      \pause
+
+			\item b将文件当作二进制文件处理
+
+		\end{itemize}
 
 	\end{block}
+\end{frame}
+\subsection{读取文件内的内容}
+\begin{frame}[t]
+	f=open("filename",rt)\\
+	\begin{example}[]
+		f.read()\#获取文件内的所有内容
+	\end{example}
 	\pause
-
-	\begin{alertblock}{Attention}
-		调用函数时传入的参数数量必须与形参个数相同。
-	\end{alertblock}
+	\begin{example}[]
+		f.read(argue)\#获取前argue个字符
+	\end{example}
 	\pause
-	\begin{alertblock}{Attention}
-		如果在定义函数时无法确定函数形参数量该如何定义函数？
-	\end{alertblock}
-
-
+	\begin{example}[]
+		f.readline()\#每次调用该函数获取下一行字符
+	\end{example}
 
 \end{frame}
-\subsection{可变形参函数的定义}
+\subsection{向文件内写入文本}
+\begin{frame}[t]
+	对比一下两种打开文件方式的区别，理解资源管理的重要性
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			f = open("file.txt", "w", encoding="utf-8")\\
+			f.write("Hello")\\
+			f.close()
+		\end{column}
+		\pause
+		\begin{column}{0.5\textwidth}
+			with open("file.txt", "w", encoding="utf-8") as f:\\
+			f.write("Hello")
+		\end{column}
+	\end{columns}
+
+\end{frame}
+\subsection{删除文件与目录}
+\begin{itemize}
+	\item 删除文件
+	      \begin{example}[]
+		      os.remove("demofile.txt")
+	      \end{example}
+	\item 删除目录
+	      \begin{example}[]
+		      os.rmdir("myfolder")
+	      \end{example}
+\end{itemize}
+
+\section{异常处理}
 
 \begin{frame}[t]
-	\begin{block}{创建可变形参函数}
-		def my\_function(*kids):\\
-		print("The youngest child is " + kids[2])\\
-	\end{block}
-	\pause
-	\begin{block}{调用}
-		my\_function("Emil", "Tobias", "Linus")\#将实参作为元组传入函数因此需要通过索引值的方式访问实参
-	\end{block}
+	\frametitle{异常处理}
+	try:\\\#执行可能会出错的代码块\\
+	expect NameError\\\#前面代码执行时抛出某个具体异常\\
+	expect:\\\#抛出除了NameError之外的其他异常\\
+	else:\\\#若不抛出异常执行\\
+	finally:\\\#无论是否抛出异常均执行
+
 
 \end{frame}
-\begin{frame}[t]
-	\begin{block}{定义}
-		def my\_function(**kid):\\
-		print("His last name is " + kid["lname"])\\
-	\end{block}
-	\pause
-	\begin{block}{调用}
-		my\_function(fname = "Tobias", lname = "Refsnes")\#由于实参以字典的方式传入函数,因此条用时需要指定key
-	\end{block}
-\end{frame}
-
-\section{函数的调用}
-
-\begin{frame}[t]
-	\begin{block}{规定实参形式}
-		def test\_function (a,b,/,*,c,d,)\#规定,/符合之前实参按顺序赋值，在,*之后形参按key复制
-	\end{block}
-	\pause
-	\begin{block}{为形参设置默认值}
-		def my\_function(country = "Norway")\#如果调用函数不传入实参怎使用默认值
-
-	\end{block}
-	\pause
-	\begin{block}{空体函数}
-		def myfunction():\#通过pass关键字可以暂时不指定函数体\\
-		pass
-	\end{block}
-
-\end{frame}
-
-\section{Lambda表达式}
-
-\begin{frame}[t]
-	\begin{block}{创建}
-		x = lambda a, b, c : a + b + c
-	\end{block}
-	\pause
-	\begin{block}{调用}
-		def lambda\_func(a,b,*,func):\\定义
-		lambda\_func(2,4,func=lambda a,b:a*b)\\调用将lambda表达式作为实参
-
-	\end{block}
-\end{frame}
-
-\section{正则表达式}
-
-
-
-\begin{frame}[t]
-	\begin{block}{example}
-	如何在匹配所有单词	
-	\end{block}
-	
-\end{frame}
-
 \end{document}
