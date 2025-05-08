@@ -1,0 +1,164 @@
+\documentclass{beamer}
+\usepackage{ctex}
+\usepackage{zhs}
+\usepackage{diagbox}  % 斜线表头
+\usepackage{tabularx}
+\usepackage{array}    % 导言区
+\usepackage{makecell} % 可选，增强表头美观
+\usepackage{minted}
+\title{python语言程序设计基础}
+\author{Hengsheng Zhou}
+\institute{电信与智能制造学院}
+\begin{document}
+\begin{frame}[t]
+	\titlepage
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=0.2\linewidth]{output.eps}
+		\end{center}
+	\end{figure}
+
+
+\end{frame}
+\begin{frame}
+	\frametitle{Outline}
+	\tableofcontents
+\end{frame}
+\section{Class}%
+\subsection{定义}%
+\begin{frame}[t]
+	\frametitle{Class}
+	\framesubtitle{定义|创建}
+	类将一些字段和方法归纳在一起具有面向对象的特性。
+	\pause
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			继承 & 子类继承父类的方法和属性 \\
+			\hline
+			多态 & 同一接口不同对象行为不同 \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\pause
+	用class关键字创建一个类
+	\begin{example}
+		class MyClass():
+
+
+	\end{example}
+\end{frame}
+
+\subsection{初始化}%
+\begin{frame}[t]
+	\frametitle{Class}
+	\framesubtitle{初始化}
+	def \_\_init\_\_(self)：是类的实例化方法
+	当某个类的对象被创建时\_\_init\_\_初始化方法总是先被执行
+	\pause
+	\begin{itemize}
+		\item 实例变量
+		\item 受保护的变量
+		\item 私有变量
+		\item 类变量
+	\end{itemize}
+	\pause
+	\begin{example}
+		写一个初始化函数，该函数为对象的三个字段赋值
+	\end{example}
+
+
+\end{frame}
+
+\subsection{魔术方法}%
+\begin{frame}[fragile]
+	\frametitle{Class}
+	\framesubtitle{魔术方法}
+	重写魔术方法可以改变类的某些特定行为,以两个下划线开头和两个下划线结尾的函数都是python里的魔术方法
+	\pause
+	\begin{example}
+		\begin{itemize}
+			\item \_\_init\_\_()
+			\item \_\_str\_\_()
+			\item \_\_next\_\_()
+			\item \_\_iter\_\_()
+			\item \_\_eq\_\_()
+		\end{itemize}
+
+	\end{example}
+
+\end{frame}
+
+\subsection{实例方法|类方法|静态方法|}%
+\begin{frame}[fragile]
+	\frametitle{Class}
+	\framesubtitle{实例方法}
+	\begin{table}[htpb]
+		\centering
+		\begin{tabular}{| >{\centering\arraybackslash}m{3cm} | >{\centering\arraybackslash}m{3cm} | >{\centering\arraybackslash}m{3cm} |}			\hline
+			实例方法 & 参数中带有self形参的方法被称为实例方法 & 通过对象访问    \\
+			\hline
+			类方法  & 参数中带有cls形参的方法被称为实例方法  & 通过对象或类名访问 \\
+			\hline
+			静态方法 & 参数中不具有cls或self的形参     & 通过对象或类名访问 \\
+			\hline
+		\end{tabular}	\end{table}
+\end{frame}
+
+
+\section{字段}%
+
+\subsection{局部|全局}%
+
+\begin{frame}[fragile]
+\frametitle{字段}
+\framesubtitle{局部|全局}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+  \begin{minted}[fontsize=\small, linenos]{python}
+x=0
+def add_self(name):
+  x=0
+  for _ in range(10):
+    x+=1
+print(x)
+  \end{minted}
+\end{column}
+\begin{column}{0.5\textwidth}
+  \begin{minted}[fontsize=\small, linenos]{python}
+x=0
+def add_self(name):
+  global x
+  x=0
+  for _ in range(10):
+    x+=1
+print(x)
+  \end{minted}
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{私有|受保护的变量|类|实例}%
+
+\begin{frame}[t]
+	\frametitle{字段}
+	\framesubtitle{私有|受保护的变量|类|实例}
+	\begin{center}
+		\begin{tabular}{|c|c|}
+			\hline
+			私有 & 前缀为\_\_ \\
+			\hline
+			受保护的变量 & 前缀为\_ \\
+			\hline
+			类变量 & 通过cls赋值 \\
+			\hline
+			实例变量 & 通过self赋值 \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{frame}
+
+
+
+
+\end{document}
