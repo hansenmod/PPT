@@ -3,6 +3,7 @@
 \usepackage{zhs}
 \usepackage{diagbox}  % 斜线表头
 \usepackage{colortbl} %
+\usepackage{minted}
 \title{python语言程序设计基础}
 \author{Hengsheng Zhou}
 \institute{电信与智能制造学院}
@@ -17,50 +18,58 @@
 
 
 \end{frame}
-\begin{frame}
-	\frametitle{回顾}
-	请同们用先思考一下列表的特性
-	\begin{figure}[htpb]
-		\centering
-		\includegraphics[width=0.3\textwidth]{discussion1.png}
-		\label{fig:}
-	\end{figure}
+\begin{frame}[h]
+\frametitle{回顾}
+请同们用先思考一下列表的特性
+
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
 	\frametitle{元组}
-	\framesubtitle{元组的创建}
-	\begin{table}[htpb]
-		\centering
-		\label{tab:label}
-		\begin{tabular}{|c|c|}
-			\hline
-			列表     & 元组     \\
-			\hline
-			有序     & 有序     \\
-			\hline
-			有重复元素  & 有重复元素  \\
-			\hline
-			元素值可更改 & 元素值可更改 \\
-			\hline
-			可增删元素  & 不可增删元素 \\
-			\hline
-		\end{tabular}
-	\end{table}
-	\pause
-	\begin{block}{元组的创建}
-		创建元组thistuple = ("apple", "banana", "cherry", "apple", "cherry")
-		使用构造器创建元组thistuple = tuple(("apple", "banana", "cherry", "apple", "cherry"))
-	\end{block}
+\framesubtitle{元组的创建}
+\begin{table}[htpb]
+\centering
+\label{tab:label}
+\begin{tabular}{|c|c|}
+\hline
+列表 & 元组 \\
+\hline
+有序   & 有序    \\
+\hline
+有重复元素  & 有重复元素  \\
+\hline
+元素值可更改 & 元素值可更改 \\
+\hline
+可增删元素  & 不可增删元素 \\
+\hline
+\end{tabular}
+\end{table}
+\pause
+\begin{columns}
+	\begin{column}{0.5\textwidth}
+\begin{minted}[fontsize=\small, linenos]{python}
+mytuple1=(1,2,3,4,5)
+#使用中括号创建元组
+\end{minted}
+	\end{column}
+	\begin{column}{0.5\textwidth}
+\begin{minted}[fontsize=\small, linenos]{python}
+mytuple2=tuple({1,2,3,4})
+mytuple2=tuple((1,2,3,4))
+mytuple2=tuple({1,2,3,4})
+#使用构造器创建元组
+\end{minted}	
+	\end{column}
+\end{columns}
 
-	\pause
-	\begin{alertblock}{定义但个元素的元组}
-		创建单元素的元组必须在元素后添加逗号
-		thistuple = ("apple",)
-		print(type(thistuple))
-		thistuple = ("apple")
-		print(type(thistuple))
-	\end{alertblock}
-
+\pause
+\begin{alertblock}{定义但个元素的元组}
+\begin{minted}[fontsize=\small, linenos]{python}
+thistuple = ("apple",)
+#将创建一个元组
+thistuple = ("apple")
+#将创建一个字符
+\end{minted}
+\end{alertblock}
 \end{frame}
 
 
@@ -152,11 +161,7 @@
 	\frametitle{讨论}
 	请同学们讨论一下1和True或0和False可以在同一个集合中么?
 
-	\begin{figure}[htpb]
-		\centering
-		\includegraphics[width=0.3\textwidth]{discussion1.png}
-		\label{fig:}
-	\end{figure}
+	
 \end{frame}
 \begin{frame}[t]
 	\frametitle{集合}
@@ -265,11 +270,7 @@
 	\frametitle{讨论}
 	请同学们讨论一下若使用keys获取到所有键位后更改了字典那么以获取的键位列表会不会改变?
 
-	\begin{figure}[htpb]
-		\centering
-		\includegraphics[width=0.3\textwidth]{discussion1.png}
-		\label{fig:}
-	\end{figure}
+	
 \end{frame}
 \begin{frame}[t]
 	\frametitle{字典}
